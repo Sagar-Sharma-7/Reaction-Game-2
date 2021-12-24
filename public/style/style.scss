@@ -44,6 +44,16 @@ header{
     margin: 1vh 1vw;
     border-radius: 10px;
     background-color: rgb(48, 250, 48);
+    .restart{
+        width: 100%;
+        font-size: 1.3rem;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+    }
 }
 .game_container{
     display: grid;
@@ -60,5 +70,5 @@ header{
 hr{
     margin-top: 3vh;
     width: 90%;
-    border: 1px solid rgb(75, 255, 75);
+    border: 1px solid rgb(48, 250, 48);
 }

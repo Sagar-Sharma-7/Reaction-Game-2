@@ -46,6 +46,17 @@ header h1 {
   background-color: #30fa30;
 }
 
+.banner .restart {
+  width: 100%;
+  font-size: 1.3rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
 .game_container {
   display: -ms-grid;
   display: grid;
@@ -65,6 +76,6 @@ header h1 {
 hr {
   margin-top: 3vh;
   width: 90%;
-  border: 1px solid #4bff4b;
+  border: 1px solid #30fa30;
 }
 /*# sourceMappingURL=style.css.map */
