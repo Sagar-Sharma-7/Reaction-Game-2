@@ -32,7 +32,39 @@ header {
 }
 
 header h1 {
-  -webkit-text-stroke: 1px white;
+  -webkit-text-stroke: 1px #fff;
   -webkit-text-fill-color: #222222;
+}
+
+.banner {
+  color: #222;
+  text-align: center;
+  padding: 3vh 1vw;
+  font-size: 1.2rem;
+  margin: 1vh 1vw;
+  border-radius: 10px;
+  background-color: #30fa30;
+}
+
+.game_container {
+  display: -ms-grid;
+  display: grid;
+  margin: 5vh 1vw 0 1vw;
+  height: 56vh;
+  -ms-grid-columns: (auto)[4];
+      grid-template-columns: repeat(4, auto);
+  grid-gap: 2px;
+}
+
+.game_container .box {
+  background-color: #262626;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+hr {
+  margin-top: 3vh;
+  width: 90%;
+  border: 1px solid #4bff4b;
 }
 /*# sourceMappingURL=style.css.map */

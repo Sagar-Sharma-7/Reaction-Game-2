@@ -32,7 +32,33 @@ header{
     margin: 5px;
     text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
     h1 {
-        -webkit-text-stroke: 1px rgb(255, 255, 255);
+        -webkit-text-stroke: 1px #fff;
         -webkit-text-fill-color: #222222;
       }
+}
+.banner{
+    color: #222;
+    text-align: center;
+    padding: 3vh 1vw;
+    font-size: 1.2rem;
+    margin: 1vh 1vw;
+    border-radius: 10px;
+    background-color: rgb(48, 250, 48);
+}
+.game_container{
+    display: grid;
+    margin: 5vh 1vw 0 1vw;
+    height: 56vh;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 2px;
+    .box{
+        background-color: #262626;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}
+hr{
+    margin-top: 3vh;
+    width: 90%;
+    border: 1px solid rgb(75, 255, 75);
 }
