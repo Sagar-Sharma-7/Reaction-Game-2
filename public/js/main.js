@@ -20,32 +20,37 @@ let num = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 boxes[first_box].addEventListener("click", () => {
     const startTime = new Date().getTime();
 
-    const b1 = num[Math.floor(Math.random() * 16)]
-    num = num.filter((value,index,aarr) => {return value !=b1});
+    const b1 = num[Math.floor(Math.random() * num.length)];
+    console.log(b1, num.length);
+    num = num.filter((value,index,arr) => {return value !=b1});
     boxes[b1].style.backgroundColor = `${colors[0]}`;
     boxes[first_box].style.background = `#262626`;
     boxes[first_box].disabled = true;
     boxes[b1].addEventListener("click", () => {
-        const b2 = num[Math.floor(Math.random() * 15)];
-        num = num.filter((value,index,aarr) => {return value !=b2});
+        const b2 = num[Math.floor(Math.random() * num.length)];
+        console.log(b2, num.length);
+        num = num.filter((value,index,arr) => {return value !=b2});
         boxes[b2].style.backgroundColor = `${colors[1]}`;
         boxes[b1].style.background = `#262626`;
         boxes[b1].disabled = true;
         boxes[b2].addEventListener("click", () => {
-            const b3 = num[Math.floor(Math.random() * 14)];
-            num = num.filter((value,index,aarr) => {return value !=b3});
+            const b3 = num[Math.floor(Math.random() * num.length)];
+            console.log(b3, num.length);      
+            num = num.filter((value,index,arr) => {return value !=b3});
             boxes[b3].style.backgroundColor = `${colors[2]}`;
             boxes[b2].style.background = `#262626`;
             boxes[b2].disabled = true;
             boxes[b3].addEventListener("click", () => {
-                const b4 = num[Math.floor(Math.random() * 13)];
-                num = num.filter((value,index,aarr) => {return value !=b4});
+                const b4 = num[Math.floor(Math.random() * num.length)];
+                console.log(b4, num.length);
+                num = num.filter((value,index,arr) => {return value !=b4});
                 boxes[b4].style.backgroundColor = `${colors[3]}`;
                 boxes[b3].style.background = `#262626`;
                 boxes[b3].disabled = true;
                 boxes[b4].addEventListener("click", () => {
-                    const b5 = num[Math.floor(Math.random() * 12)];
-                    num = num.filter((value,index,aarr) => {return value !=b5});
+                    const b5 = num[Math.floor(Math.random() * num.length)];
+                    console.log(b5, num.length);
+                    num = num.filter((value,index,arr) => {return value !=b5});
                     boxes[b5].style.backgroundColor = `${colors[4]}`;
                     boxes[b4].style.background = `#262626`;
                     boxes[b4].disabled = true;
