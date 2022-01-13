@@ -16,53 +16,48 @@ boxes[first_box].style.backgroundColor = `rgb(48, 250, 48)`;
 const colors = [" #4C8BF5", "#FF781F", "#FFFE67", "#FE68C3", "#9B6DFF"];
 let num = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 
+// box function
+const editBox = (x) => {
+    boxes[x].style.backgroundColor = `#262626`;
+    boxes[x].disabled = true;
+    num = num.filter((value,index,arr) => {return value != x});
+    console.log(num);
+};
+
 // start game
 boxes[first_box].addEventListener("click", () => {
     const startTime = new Date().getTime();
-
+    editBox(first_box);
     const b1 = num[Math.floor(Math.random() * num.length)];
-    console.log(b1, num.length);
-    num = num.filter((value,index,arr) => {return value !=b1});
-    boxes[b1].style.backgroundColor = `${colors[0]}`;
-    boxes[first_box].style.background = `#262626`;
-    boxes[first_box].disabled = true;
-    boxes[b1].addEventListener("click", () => {
+    console.log(b1)
+    boxes[num[b1]].style.backgroundColor = `${colors[0]}`;
+    boxes[num[b1]].addEventListener("click", () => {
+        editBox(b1);
         const b2 = num[Math.floor(Math.random() * num.length)];
-        console.log(b2, num.length);
-        num = num.filter((value,index,arr) => {return value !=b2});
-        boxes[b2].style.backgroundColor = `${colors[1]}`;
-        boxes[b1].style.background = `#262626`;
-        boxes[b1].disabled = true;
-        boxes[b2].addEventListener("click", () => {
+        console.log(b2)
+        boxes[num[b2]].style.backgroundColor = `${colors[1]}`;
+        boxes[num[b2]].addEventListener("click", () => {
+            editBox(b2);
             const b3 = num[Math.floor(Math.random() * num.length)];
-            console.log(b3, num.length);      
-            num = num.filter((value,index,arr) => {return value !=b3});
-            boxes[b3].style.backgroundColor = `${colors[2]}`;
-            boxes[b2].style.background = `#262626`;
-            boxes[b2].disabled = true;
-            boxes[b3].addEventListener("click", () => {
+            console.log(b3)
+            boxes[num[b3]].style.backgroundColor = `${colors[2]}`;
+            boxes[num[b3]].addEventListener("click", () => {
+                editBox(b3);
                 const b4 = num[Math.floor(Math.random() * num.length)];
-                console.log(b4, num.length);
-                num = num.filter((value,index,arr) => {return value !=b4});
-                boxes[b4].style.backgroundColor = `${colors[3]}`;
-                boxes[b3].style.background = `#262626`;
-                boxes[b3].disabled = true;
-                boxes[b4].addEventListener("click", () => {
+                console.log(b4)
+                boxes[num[b4]].style.backgroundColor = `${colors[3]}`;
+                boxes[num[b4]].addEventListener("click", () => {
+                    editBox(b4);
                     const b5 = num[Math.floor(Math.random() * num.length)];
-                    console.log(b5, num.length);
-                    num = num.filter((value,index,arr) => {return value !=b5});
-                    boxes[b5].style.backgroundColor = `${colors[4]}`;
-                    boxes[b4].style.background = `#262626`;
-                    boxes[b4].disabled = true;
-                    boxes[b5].addEventListener("click", () => {
+                    console.log(b5)
+                    boxes[num[b5]].style.backgroundColor = `${colors[4]}`;
+                    boxes[num[b5]].addEventListener("click", () => {
                         const endTime = new Date().getTime();
-                        boxes[b5].style.backgroundColor = `#262626`;
-                        alert((endTime - startTime)/5);
+                        console.log((endTime - startTime) /5);
+                        editBox(b5);
                     })
                 })
             })
-        });
-    });
-
-
+        })
+    })
 });
