@@ -6,58 +6,64 @@ boxes = document.querySelectorAll(".box");
 
 // text content
 score_div.textContent = "Reaction Game";
-info.textContent = "Click on the Green box to start the time.";
+info.textContent = "Click me to start the game.";
 
-// coloured box
-first_box = Math.floor(Math.random() * 16);
-boxes[first_box].style.backgroundColor = `rgb(48, 250, 48)`;
+// instructions
 
 // colors
 const colors = [" #4C8BF5", "#FF781F", "#FFFE67", "#FE68C3", "#9B6DFF"];
-let num = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 
-// box function
-const editBox = (x) => {
-    boxes[x].style.backgroundColor = `#262626`;
-    boxes[x].disabled = true;
-    num = num.filter((value,index,arr) => {return value != x});
-    console.log(num);
+let index = [];
+while(index.length < 5){
+    let x = Math.floor(Math.random()* 16);
+    if (index.indexOf(x) == -1) index.push(x);
+    console.log(index);
 };
 
-// start game
-boxes[first_box].addEventListener("click", () => {
+// styling on Click
+const editBox = (n) => {
+    boxes[index[n]].style.backgroundColor = `#262626`;
+    boxes[index[n]].disabled = true;
+}
+
+
+
+info.addEventListener("click", () => {
     const startTime = new Date().getTime();
-    editBox(first_box);
-    const b1 = num[Math.floor(Math.random() * num.length)];
-    console.log(b1)
-    boxes[num[b1]].style.backgroundColor = `${colors[0]}`;
-    boxes[num[b1]].addEventListener("click", () => {
-        editBox(b1);
-        const b2 = num[Math.floor(Math.random() * num.length)];
-        console.log(b2)
-        boxes[num[b2]].style.backgroundColor = `${colors[1]}`;
-        boxes[num[b2]].addEventListener("click", () => {
-            editBox(b2);
-            const b3 = num[Math.floor(Math.random() * num.length)];
-            console.log(b3)
-            boxes[num[b3]].style.backgroundColor = `${colors[2]}`;
-            boxes[num[b3]].addEventListener("click", () => {
-                editBox(b3);
-                const b4 = num[Math.floor(Math.random() * num.length)];
-                console.log(b4)
-                boxes[num[b4]].style.backgroundColor = `${colors[3]}`;
-                boxes[num[b4]].addEventListener("click", () => {
-                    editBox(b4);
-                    const b5 = num[Math.floor(Math.random() * num.length)];
-                    console.log(b5)
-                    boxes[num[b5]].style.backgroundColor = `${colors[4]}`;
-                    boxes[num[b5]].addEventListener("click", () => {
-                        const endTime = new Date().getTime();
-                        console.log((endTime - startTime) /5);
-                        editBox(b5);
-                    })
-                })
-            })
-        })
-    })
+    let i;
+    for(i = 0; i <=15; i++){
+        boxes[i].disabled = false;
+    };
+    banner.style.backgroundColor = `#262626`;
+    info.style.color = `#ffffff`;
+    info.textContent = 'Click on the coloured box as fast as you can.'
+    boxes[index[0]].style.backgroundColor = `${colors[0]}`;
+    boxes[index[0]].addEventListener("click", () => {
+        editBox(0);
+        boxes[index[1]].style.backgroundColor = `${colors[1]}`;
+        boxes[index[1]].addEventListener("click", () => {
+            editBox(1);
+            boxes[index[2]].style.backgroundColor = `${colors[2]}`;
+            boxes[index[2]].addEventListener("click", () => {
+                editBox(2);
+                boxes[index[3]].style.backgroundColor = `${colors[3]}`;
+                boxes[index[3]].addEventListener("click", () => {
+                    editBox(3);
+                    boxes[index[4]].style.backgroundColor = `${colors[4]}`;
+                    boxes[index[4]].addEventListener("click", () => {
+                        const finshTime = new Date().getTime();
+                        editBox(4);
+                        score_div.innerHTML = `${(finshTime - startTime)/5000} seconds`;
+                        banner.style.backgroundColor = `rgb(48, 250, 48)`;
+                        info.style.color = `#262626`;
+                        info.textContent = 'Click me to start the game.';
+                    });
+                });
+            });
+        });
+    });
 });
+
+
+
+
